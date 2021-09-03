@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<title> Guess my number</title>
+<meta charset="utf-8">
+<script>
+
+function SB()
+{document.getElementById("txt").value="";	document.getElementById("tt").value="";}
+function Ys()
+{alert("I guessed your number"+"\n \t \t"+"I so guut");location.reload();}
+function Nope()
+{
+document.getElementById("h").style.display="block";
+document.getElementById("l").style.display="block";
+}
+function h()
+{document.getElementById("txt").value=document.getElementById("yur").innerHTML;
+var m=document.getElementById("txt").value;
+var n=document.getElementById("tt").value;
+var p = Math.random();
+var M=m;
+var N=n;
+var o1=0,o2=0;
+var A_A=true;
+	while(A_A)
+	{if(M>=0 && M<1)
+		{if(N>=0 && N<=1) A_A=false;
+		else {N=N/10;o2++;}
+		}
+	else {M=M/10; o1++;}	
+	}
+	if(o2>o1) o1=o2;
+	while (p<=M || p>=N)
+	p=Math.random();
+	for(var i=0;i<o1;i++)
+		p=p*10;
+		p=Math.round(p);
+	document.getElementById("yur").innerHTML=p;
+	document.getElementById("P").innerHTML="Then is it: ";
+}
+function l()
+{document.getElementById("tt").value=document.getElementById("yur").innerHTML;
+var m=document.getElementById("txt").value;
+var n=document.getElementById("tt").value;
+var p = Math.random();
+var M=m;
+var N=n;
+var o1=0,o2=0;
+var A_A=true;
+	for(;A_A;)
+	{if(M>=0 && M<1)
+		{if(N>=0 && N<=1) A_A=false;
+		else {N=N/10;o2++;}
+		}
+	else {M=M/10; o1++;}	
+	}
+	if(o2>o1) o1=o2;
+	while (p<=M || p>=N)
+	p=Math.random();
+	for(var i=0;i<o1;i++)
+		p=p*10;
+		p=Math.round(p);
+	document.getElementById("yur").innerHTML=p;
+	document.getElementById("P").innerHTML="Maybe it is: ";
+}
+function Gs()
+{
+var m,n;
+m=document.getElementById("txt").value;
+n=document.getElementById("tt").value;
+var p = Math.random();
+var M=m;
+var N=n;
+var o1=0,o2=0;
+var A_A=true;
+	for(;A_A;)
+	{if(M>=0 && M<1)
+		{if(N>=0 && N<=1) A_A=false;
+		else {N=N/10;o2++;}
+		}
+	else {M=M/10; o1++;}	
+	}
+	if(o2>o1) o1=o2;
+	while (p<=M || p>=N)
+	p=Math.random();
+	for(var i=0;i<o1;i++)
+		p=p*10;
+		p=Math.round(p);
+	document.getElementById("yur").innerHTML=p;
+	
+	
+}
+</script>
+</head>
+<body onload=SB()>
+<style>
+.text{width:85px;
+margin: 25px;
+}
+#h{display:none;margin-left:50px;}
+#l{display:none;margin-left:50px;}
+	</style>
+	This is a game where you think about a number. Then you set an interval that contains your number. When you click on the buttons below a random number is generated in the given interval and you tell the computer whether it guessed correct or not. If computer didnt get it right, then you tell it if your number is lower or higher than the given random number.<br>
+<input class="text" id="txt" placeholder="lower bound">	-	<input class="text" id="tt" placeholder="upper bound"></br>
+<p id="P">
+Your number is: <p id="yur"> </p>
+</p>
+<button onClick=Gs()>Click to Guess the number </button></br>
+<button id="yes" onClick=Ys()>Yes</button>
+<button id="nope" onClick=Nope()>No</button></br>
+<button class="aa" id="h" onClick=h()>higher</button>
+<button class="aa" id="l" onClick=l()>lower</button>
+</body>
+</html>

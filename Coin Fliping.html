@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<title> Coin Fliping</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<script>
+window.alert("there is a Bootstrap here");
+var T=0;
+var H=0;
+function Coin()
+{var a=Math.random();
+if(Math.round(a)==1) {T++;document.getElementById("T").innerHTML=T;document.getElementById("im").src="Coin - Tail.jpg";}
+if(Math.round(a)==0) {H++;document.getElementById("H").innerHTML=H;document.getElementById("im").src="Coin - Head.png";}
+}
+function Clear()
+{document.getElementById("T").innerHTML=0;T=0;
+document.getElementById("H").innerHTML=0;H=0;
+im.src="";
+}
+</script>
+<p id="p">Tails:<div id="T">0</div><br>
+		  Heads:<div id="H">0</div><br>
+	</p>
+<button type="button" class="btn btn-info" onClick=Coin()>Press to Throw a coin</button>
+<input type="radio" id="rad" style="margin-left:10px" onClick=Clear()>	Press the radio button to reset the result<br>
+<img id="im" src="" style="float:right;">
+</body>
+</html>

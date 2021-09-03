@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head><title>Rock, Scissors, Paper Game</title></head>
+<body>
+<script type="text/javascript">
+var C=prompt("Rock, Paper or Scissors?");
+var CC=Math.random();
+if(CC>0 && CC<=0.33) CC="Rock";
+if(CC>0.33 && CC<=0.66) CC="Paper";
+else CC="Scissors";
+document.write("You chose: " + C + "<br/>");
+document.write("The Computer chose: "+CC);
+document.write("<br/>");
+if(C===CC) document.write("Draw!<br/>");
+if(C=="Rock" || C=="rock")
+	{
+	if(CC=="Paper") document.write ("You lose!<br/>");
+	if(CC=="Scissors") document.write ("You win!<br/>"); 
+	}
+if(C=="Paper" || C=="paper")
+	{
+	if(CC=="Rock") document.write ("You win!<br/>");
+	if(CC=="Scissors") document.write ("You lose!<br/>");
+	}
+if(C=="Scissors" || C=="scissors")
+	{
+	if(CC=="Rock") document.write ("You lose!<br/>");
+	if(CC=="Paper") document.write ("You win!<br/>");
+	}
+</script>
+</body>
+</html>

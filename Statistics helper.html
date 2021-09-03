@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<title> </title>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body >
+<Style>.text{width:35px; height: 20px;} #diV{margin-bottom:10px;} #m{float:right;right:10px;}  #D{float:right;} 
+</style>
+<div class="col-xs-5">
+<div id="div"></div>
+<div id="diV"></div>
+<input id="m" class="text">	</br>
+<button id="D" onClick=EX()>|X-EX| </button>
+<button id="D" onClick=N()>n </button></br></br>
+<button id="D" onClick=sigma()>σ</button>
+<button id="D" onClick=delta()>δ</button>
+<button id="D" onClick=D()>(X-EX)^2</button>
+<span class="badge" id="EXX"></span>	<span class="badge" id="DD"></span>	<span class="badge" id="ddelta"></span>	<span class="badge" id="ssigma"></span>
+</div>
+<script>
+function N()
+{var m=document.getElementById("m").value;
+for(var i=0;i<m;i++)
+{
+var Bt=document.createElement("input");
+		Bt.setAttribute("class","text");
+		Bt.setAttribute("placeholder","X"+(i+1));
+		Bt.setAttribute("id","X"+(i+1));
+		document.getElementById("div").appendChild(Bt);
+var P=document.createElement("input");
+		P.setAttribute("class","text");
+		P.setAttribute("placeholder","p"+(i+1));
+		P.setAttribute("id", "P"+(i+1));
+		document.getElementById("diV").appendChild(P);
+}
+var t=document.createTextNode("X");
+document.getElementById("div").appendChild(t);
+var tt=document.createTextNode("P");
+document.getElementById("diV").appendChild(tt);
+}
+function EX()
+{var m=document.getElementById("m").value;
+var br=document.createElement("br");
+		document.getElementById("diV").appendChild(br);
+var EX=document.getElementById("X"+1).value*document.getElementById("P"+1).value;
+for(var i=1;i<m;i++)
+{EX=EX+document.getElementById("X"+(i+1)).value*document.getElementById("P"+(i+1)).value;}
+document.getElementById("EXX").innerHTML=EX;//-----------------------------------EEEEEXXXXXXX----------------------------------
+for(var i=0;i<m;i++)
+{
+var Bt=document.createElement("input");
+		Bt.setAttribute("class","text");
+		Bt.setAttribute("id", "EX"+(i+1));
+	var Value=Math.abs(document.getElementById("X"+(i+1)).value-EX);
+		Bt.setAttribute("value",Value);
+		document.getElementById("diV").appendChild(Bt);
+}
+var tt=document.createTextNode("|X-EX|");
+document.getElementById("diV").appendChild(tt);
+}//-----------------------------------EEEEEXXXXXXX----------------------------------
+function D()
+{var m=document.getElementById("m").value;
+var br=document.createElement("br");
+		document.getElementById("diV").appendChild(br);
+for(var i=0;i<m;i++)
+{
+var Bt=document.createElement("input");
+		Bt.setAttribute("class","text");
+	var Value=Math.pow(document.getElementById("EX"+(i+1)).value , 2 );
+		Bt.setAttribute("value",Value);
+		document.getElementById("diV").appendChild(Bt);
+}
+var D=document.getElementById("P"+1).value*Math.pow(document.getElementById("EX"+1).value , 2 );
+for(var i=1;i<m;i++)
+{D=D+document.getElementById("P"+(i+1)).value*Math.pow(document.getElementById("EX"+(i+1)).value , 2 );}
+document.getElementById("DD").innerHTML=D;
+var tt=document.createTextNode("(X-EX)^2");
+document.getElementById("diV").appendChild(tt);
+}
+function delta()
+{var delta=document.getElementById("P"+1).value*document.getElementById("EX"+1).value;
+for(var i=1;i<m;i++)
+{delta=delta+document.getElementById("P"+(i+1)).value*document.getElementById("EX"+(i+1)).value;}
+document.getElementById("ddelta").innerHTML=delta;
+}
+function sigma()
+{var sigma=document.getElementById("DD").innerHTML;
+document.getElementById("ssigma").innerHTML=Math.sqrt(sigma);
+}
+</script>
+</body>
+</html>
